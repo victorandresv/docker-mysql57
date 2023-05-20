@@ -1,0 +1,20 @@
+version: "3.2"
+
+services:
+  mysql:
+    container_name: mysql
+    platform: linux/x86_64
+    image: mysql:5.7.41
+    networks:
+      - default_network
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=<MY_SECURE_ROOT_PASSWORD>
+      - MYSQL_USER=<my_custom_database_user>
+      - MYSQL_PASSWORD=<MY_SECURE_USER_PASSWORD>
+      - MYSQL_DATABASE=<my_custom_database>
+
+networks:
+  default_network:
+    driver: bridge
